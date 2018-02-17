@@ -11,7 +11,7 @@ animal1 = Animal.new({
   'breed' => 'shitzu',
   'health' => '50',
   'admission_date' => '08-Jan-2018',
-  'adoptable' => false
+
   })
 
   animal2 = Animal.new({
@@ -20,7 +20,7 @@ animal1 = Animal.new({
     'breed' => 'british shorthair',
     'health' => '70',
     'admission_date' => '08-Jan-2018',
-    'adoptable' => false
+
     })
 
     animal3 = Animal.new({
@@ -29,7 +29,7 @@ animal1 = Animal.new({
       'breed' => 'cockapoo',
       'health' => '100',
       'admission_date' => '08-Jan-2018',
-      'adoptable' => true
+
       })
   animal1.save
   animal2.save

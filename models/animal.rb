@@ -2,7 +2,7 @@ require_relative('../db/sql_runner.rb')
 
 class Animal
 
-  attr_reader :id, :name, :type, :breed, :health, :admission_date, :adoptable
+  attr_reader :id, :name, :type, :breed, :health, :admission_date
 
   def initialize(options)
     @id = options["id"].to_i
@@ -11,7 +11,7 @@ class Animal
     @breed = options["breed"]
     @health = options["health"]
     @admission_date = options["admission_date"]
-    @adoptable = options["adoptable"]
+    # @adoptable = options["adoptable"]
   end
 
   def save()
@@ -30,6 +30,14 @@ class Animal
     animals = SqlRunner.run(sql)
     result = animals.map{|animal| Animal.new(animal)}
     return result
+  end
+
+  def adoptable()
+    if (@health == 100)
+      return true
+    else
+      return false
+    end
   end
 
 end
