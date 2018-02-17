@@ -1,5 +1,5 @@
-DROP TABLE animals;
 DROP TABLE owners;
+DROP TABLE animals;
 
 
 CREATE TABLE animals
@@ -19,6 +19,5 @@ CREATE TABLE owners
   name VARCHAR(255) not null,
   address VARCHAR(255),
   phone_number VARCHAR(255) not null,
-  animal_id REFERENCES animals(id) ON DELETE CASCADE
-
+  animal_id INT REFERENCES animals(id) ON DELETE CASCADE
 );
