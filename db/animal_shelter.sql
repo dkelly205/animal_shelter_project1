@@ -9,7 +9,7 @@ CREATE TABLE animals
   type VARCHAR(255),
   breed VARCHAR(255),
   health INT,
-  admission_date TIMESTAMP,
+  admission_date DATE,
   adoptable BOOLEAN
 );
 
