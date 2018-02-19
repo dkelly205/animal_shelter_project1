@@ -8,8 +8,10 @@ class TestAnimal < Minitest::Test
       'name' => 'Alfie',
       'type' => 'dog',
       'breed' => 'shitzu',
+      'gender' => 'male',
       'health' => '50',
       'admission_date' => '08-Jan-2018',
+      'image' => 'n/a',
       'adoptable' => false
       })
   end
@@ -26,16 +28,28 @@ class TestAnimal < Minitest::Test
     assert_equal( "shitzu", @animal.breed() )
   end
 
+  def test_animal_gender
+    assert_equal("male", @animal.gender)
+  end
+
   def test_animal_health
-    assert_equal( "50", @animal.health() )
+    assert_equal( 50, @animal.health() )
   end
 
   def test_animal_admission_date
     assert_equal( "08-Jan-2018", @animal.admission_date() )
   end
 
-  def test_animal_is_adoptable
+  def test_animal_image
+    assert_equal( "n/a", @animal.image() )
+  end
+
+  def test_animal_is_not_adoptable
     assert_equal( false, @animal.adoptable() )
   end
+
+
+
+
 
 end

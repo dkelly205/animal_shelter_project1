@@ -1,5 +1,6 @@
 require_relative('../models/animal.rb')
 require_relative('../models/owner.rb')
+require_relative('../models/adopted_animal.rb')
 require('pry')
 
 Animal.delete_all
@@ -9,31 +10,32 @@ animal1 = Animal.new({
   'name' => 'Alfie',
   'type' => 'dog',
   'breed' => 'shitzu',
-  'health' => '50',
+  'gender' => 'male',
+  'health' => 50,
   'admission_date' => '08-Jan-2018',
+  'image' => 'n/a',
+  'adoptable' => true
 
   })
 
-  animal2 = Animal.new({
-    'name' => 'Simba',
-    'type' => 'cat',
-    'breed' => 'british shorthair',
-    'health' => '70',
-    'admission_date' => '08-Jan-2018',
+  animal1.save
+
+  owner1 = Owner.new({
+    'first_name' => 'John',
+    'last_name' => 'Smith',
+    'address' => '10 Crow Road, Glasgow, G10 6PP',
+    'phone_number' => '01411111111'
+    })
+
+  owner1.save
+
+  adopted_animal1 = AdoptedAnimal.new({
+    'animal_id' => '1',
+    'owner_id' => '1'
 
     })
 
-    animal3 = Animal.new({
-      'name' => 'Darcie',
-      'type' => 'dog',
-      'breed' => 'cockapoo',
-      'health' => '100',
-      'admission_date' => '08-Jan-2018',
-
-      })
-  animal1.save
-  animal2.save
-  animal3.save
+    adopted_animal1.save
 
 
   binding pry
