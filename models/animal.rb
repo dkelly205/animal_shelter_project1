@@ -1,4 +1,5 @@
 require_relative('../db/sql_runner.rb')
+require_relative('../models/customer.rb')
 
 class Animal
 
@@ -14,7 +15,7 @@ class Animal
     @admission_date = options["admission_date"]
     @image = options['image']
     @adoptable = options['adoptable']
-    # @owner_id = options['owner_id'].to_i()
+
   end
 
   def save()
@@ -43,12 +44,12 @@ class Animal
     return result
   end
 
-  def owners()
-      sql = "SELECT o.* FROM owners o INNER JOIN adopted_animals ON adopted_animals.owner_id = o.id WHERE adopted_animals.animal_id = $1;"
+  def customers()
+      sql = "SELECT c.* FROM customers c INNER JOIN adoptions ON adoptions.customer_id = c.id WHERE adoptions.animal_id = $1;"
       values = [@id]
       results = SqlRunner.run(sql, values)
-      return results.map { |owner| Owner.new(owner) }
-    end
+      return results.map { |customer| Customer.new(customer) }
+  end
 
 
 end

@@ -1,50 +1,50 @@
 require_relative( '../db/sql_runner' )
 
-class AdoptedAnimal
+class Adoption
 
-  attr_reader( :id, :animal_id, :owner_id )
+  attr_reader( :id, :animal_id, :customer_id )
 
   def initialize( options )
     @id = options['id'].to_i if options['id']
     @animal_id = options['animal_id'].to_i
-    @owner_id = options['owner_id'].to_i
+    @customer_id = options['customer_id'].to_i
   end
 
   def save()
-    sql = "INSERT INTO adopted_animals
+    sql = "INSERT INTO adoptions
     (
       animal_id,
-      owner_id
+      customer_id
     )
     VALUES
     (
       $1, $2
     )
     RETURNING id"
-    values = [@animal_id, @owner_id]
+    values = [@animal_id, @customer_id]
     results = SqlRunner.run(sql, values)
     @id = results.first()['id'].to_i
   end
 
   def self.delete_all
-    sql = "DELETE FROM adopted_animals"
+    sql = "DELETE FROM adoptions"
     SqlRunner.run(sql)
   end
 
   def self.all
-    sql = "SELECT * FROM adopted_animals"
+    sql = "SELECT * FROM adoptions"
     animals = SqlRunner.run(sql)
-    result = adopted_animals.map{|adopted_animal| AdoptedAnimal.new(adopted_animal)}
+    result = adoptions.map{|adoption| Adoption.new(adoption)}
     return result
   end
 
 
-    def owner()
-      sql = "SELECT * FROM owners
+    def customer()
+      sql = "SELECT * FROM customers
       WHERE id = $1"
-      values = [@owner_id]
+      values = [@customer_id]
       results = SqlRunner.run( sql, values )
-      return Owner.new( results.first )
+      return Customer.new( results.first )
     end
 
     def animal()

@@ -1,8 +1,9 @@
-DROP TABLE adopted_animals;
-DROP TABLE animals;
-DROP TABLE owners;
 
-CREATE TABLE owners
+DROP TABLE adoptions;
+DROP TABLE animals;
+DROP TABLE customers;
+
+CREATE TABLE customers
 (
   id SERIAL8 primary key,
   first_name VARCHAR(255),
@@ -15,7 +16,7 @@ CREATE TABLE owners
 CREATE TABLE animals
 (
   id SERIAL8 primary key,
-  name VARCHAR(255) not null,
+  name VARCHAR(255),
   type VARCHAR(255),
   breed VARCHAR(255),
   gender VARCHAR(255),
@@ -23,12 +24,11 @@ CREATE TABLE animals
   admission_date DATE,
   image VARCHAR(255),
   adoptable BOOLEAN
-  -- owner_id INT REFERENCES owners(id) ON DELETE CASCADE
 );
 
-CREATE TABLE adopted_animals
+CREATE TABLE adoptions
 (
   id SERIAL8 primary key,
-  animal_id INT8 references animals(id),
-  owner_id INT8 references owners(id)
+  animal_id INT8 references animals(id) ON DELETE CASCADE,
+  customer_id INT8 references customers(id) ON DELETE CASCADE
 );
