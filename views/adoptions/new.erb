@@ -1,0 +1,28 @@
+<h3>Create an Adoption</h3>
+
+<form action="/adoptions" method="post">
+  <label>
+    <p>
+  Select a customer:
+    <select name="customer_id">
+      <% for customer in @customers %>
+      <option value="<%= customer.id %>"><%= customer.full_name %>, <%= customer.address %></option>
+      <% end %>
+    </select>
+  </label>
+    </p>
+
+    <p>
+
+  <label>
+    Select an animal to adopt:
+    <select name="animal_id">
+      <% for animal in @animals %>
+      <option value="<%= animal.id %>"><%= animal.name %>, <%= animal.type %>, <%= animal.breed %>, <%= animal.gender %></option>
+      <% end %>
+    </select>
+  </label>
+</p>
+  <footer>
+    <input type="submit" value="Submit Adoption" />
+  </footer

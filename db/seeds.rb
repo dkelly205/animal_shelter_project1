@@ -54,16 +54,17 @@ animal1 = Animal.new({
   customer2.save
 
   adoption1 = Adoption.new({
-    'animal_id' => '1',
-    'customer_id' => '1'
+    'animal_id' => animal1.id,
+    'customer_id' => customer1.id
 
     })
 
     adoption2 = Adoption.new({
-      'animal_id' => '2',
-      'customer_id' => '1'
+      'animal_id' => animal2.id,
+      'customer_id' => customer2.id
 
       })
+      # binding.pry
 
     adoption1.save
     adoption2.save

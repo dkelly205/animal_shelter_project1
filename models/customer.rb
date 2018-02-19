@@ -2,7 +2,7 @@ require_relative('../db/sql_runner.rb')
 
 class Customer
 
-  attr_reader :id, :first_name, :last_name, :address, :phone_number
+  attr_reader :id, :first_name, :last_name, :address, :phone_number, :full_name
 
   def initialize(options)
     @id = options["id"].to_i()
@@ -10,6 +10,10 @@ class Customer
     @last_name = options["last_name"]
     @address = options["address"]
     @phone_number = options["phone_number"]
+  end
+
+  def full_name()
+    return "#{first_name} #{last_name}"
   end
 
   def save()
@@ -35,6 +39,13 @@ class Customer
   def self.delete_all
     sql = "DELETE FROM customers"
     SqlRunner.run(sql)
+  end
+
+  def self.delete(id)
+    sql = "DELETE FROM customers
+    WHERE id = $1"
+    values = [id]
+    SqlRunner.run( sql, values )
   end
 
 

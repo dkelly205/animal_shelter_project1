@@ -19,7 +19,7 @@ class Animal
   end
 
   def save()
-    sql = "INSERT INTO animals (name, type, breed, gender, health, admission_date, image, adoptable) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING id"
+    sql = "INSERT INTO animals (name, type, breed, gender, health, admission_date, image, adoptable) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *"
     values = [@name, @type, @breed, @gender, @health, @admission_date, @image, @adoptable]
     @id = SqlRunner.run(sql, values)[0]["id"].to_i()
   end
@@ -50,6 +50,22 @@ class Animal
       results = SqlRunner.run(sql, values)
       return results.map { |customer| Customer.new(customer) }
   end
+
+  def self.delete(id)
+    sql = "DELETE FROM animals
+    WHERE id = $1"
+    values = [id]
+    SqlRunner.run( sql, values )
+  end
+
+  def delete()
+    sql = "DELETE FROM animals
+    WHERE id = $1"
+    values = [@id]
+    SqlRunner.run( sql, values )
+  end
+
+  
 
 
 end

@@ -33,7 +33,7 @@ class Adoption
 
   def self.all
     sql = "SELECT * FROM adoptions"
-    animals = SqlRunner.run(sql)
+    adoptions = SqlRunner.run(sql)
     result = adoptions.map{|adoption| Adoption.new(adoption)}
     return result
   end
@@ -53,6 +53,13 @@ class Adoption
       values = [@animal_id]
       results = SqlRunner.run( sql, values )
       return Animal.new( results.first )
+    end
+
+    def self.delete(id)
+      sql = "DELETE FROM adoptions
+      WHERE id = $1"
+      values = [id]
+      SqlRunner.run( sql, values )
     end
 
 end

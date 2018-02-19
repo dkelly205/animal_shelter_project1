@@ -27,4 +27,8 @@ class TestCustomer < Minitest::Test
   def test_customer_phone_number
     assert_equal("01411111111", @customer.phone_number)
   end
+
+  def test_customer_full_name
+    assert_equal("John Smith", @customer.full_name)
+  end
 end

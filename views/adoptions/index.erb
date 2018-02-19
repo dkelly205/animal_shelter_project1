@@ -1,0 +1,14 @@
+<h2>Adoptions</h2>
+
+<ul>
+  <% for adoption in @adoptions %>
+  <li>
+  <p><%= adoption.customer.full_name %> has adopted <%= adoption.animal.name %> </p>
+  <form method="post" action="/adoptions/<%= id %>/delete">
+    <input type="submit" value="Delete Adoption"/>
+  </form>
+  </li>
+  <% end %>
+</ul>
+
+<a href="/adoptions/new">Create Adoption</a>
