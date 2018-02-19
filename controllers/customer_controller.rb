@@ -19,3 +19,9 @@ end
 get "/customers/new" do
   erb(:"customers/new")
 end
+
+post "/customers/delete" do
+  @customer = Customer.find(params[:id])
+  @customer.delete()
+  redirect to "/customers"
+end

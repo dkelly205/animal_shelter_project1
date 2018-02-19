@@ -3,7 +3,7 @@ require_relative('../models/customer.rb')
 
 class Animal
 
-  attr_reader :id, :name, :type, :breed, :gender, :health, :admission_date, :image, :adoptable
+  attr_reader :id, :name, :type, :breed, :gender, :health, :admission_date, :image, :adoptable, :age
 
   def initialize(options)
     @id = options["id"].to_i()
@@ -15,12 +15,13 @@ class Animal
     @admission_date = options["admission_date"]
     @image = options['image']
     @adoptable = options['adoptable']
+    @age = options['age'].to_i()
 
   end
 
   def save()
-    sql = "INSERT INTO animals (name, type, breed, gender, health, admission_date, image, adoptable) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *"
-    values = [@name, @type, @breed, @gender, @health, @admission_date, @image, @adoptable]
+    sql = "INSERT INTO animals (name, type, breed, gender, health, admission_date, image, adoptable, age) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *"
+    values = [@name, @type, @breed, @gender, @health, @admission_date, @image, @adoptable, @age]
     @id = SqlRunner.run(sql, values)[0]["id"].to_i()
   end
 
@@ -69,13 +70,13 @@ class Animal
     sql = "UPDATE animals
     SET
     (
-      name, type, breed, gender, health, admission_date, image, adoptable
+      name, type, breed, gender, health, admission_date, image, adoptable, age
     ) =
     (
-      $1, $2, $3, $4, $5, $6, $7, $8
+      $1, $2, $3, $4, $5, $6, $7, $8, $9
     )
-    WHERE id = $9"
-    values = [@name, @type, @breed, @gender, @health, @admission_date, @image, @adoptable]
+    WHERE id = $10"
+    values = [@name, @type, @breed, @gender, @health, @admission_date, @image, @adoptable, @age, @id]
     SqlRunner.run( sql, values )
   end
 

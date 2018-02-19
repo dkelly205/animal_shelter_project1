@@ -9,10 +9,11 @@ class TestAnimal < Minitest::Test
       'type' => 'dog',
       'breed' => 'shitzu',
       'gender' => 'male',
-      'health' => '50',
+      'health' => 50,
       'admission_date' => '08-Jan-2018',
       'image' => 'n/a',
-      'adoptable' => false
+      'adoptable' => false,
+      'age' => 1
       })
   end
 
@@ -46,6 +47,10 @@ class TestAnimal < Minitest::Test
 
   def test_animal_is_not_adoptable
     assert_equal( false, @animal.adoptable() )
+  end
+
+  def test_animal_age
+    assert_equal( 1, @animal.age() )
   end
 
 

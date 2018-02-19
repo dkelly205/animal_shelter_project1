@@ -13,6 +13,9 @@
 <td><%= customer.full_name() %> </td>
 <td><%= customer.address() %> </td>
 <td><%= customer.phone_number %> </td>
+<td><form method="post" action="/customers/delete">
+  <input type="submit" value="Remove Customer"/>
+</form></td>
 </tr>
 <% end %>
 </table>

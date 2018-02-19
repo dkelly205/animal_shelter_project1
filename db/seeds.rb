@@ -15,7 +15,8 @@ animal1 = Animal.new({
   'health' => 50,
   'admission_date' => '08-Jan-2018',
   'image' => 'n/a',
-  'adoptable' => true
+  'adoptable' => true,
+  'age' => 2
 
   })
 
@@ -27,7 +28,8 @@ animal1 = Animal.new({
     'health' => 100,
     'admission_date' => '08-Jan-2018',
     'image' => 'n/a',
-    'adoptable' => true
+    'adoptable' => true,
+    'age' => 1
 
     })
 

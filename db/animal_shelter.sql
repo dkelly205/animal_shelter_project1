@@ -23,7 +23,8 @@ CREATE TABLE animals
   health INT,
   admission_date DATE,
   image VARCHAR(255),
-  adoptable BOOLEAN
+  adoptable BOOLEAN,
+  age INT
 );
 
 CREATE TABLE adoptions
