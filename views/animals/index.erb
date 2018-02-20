@@ -1,16 +1,25 @@
-<main>
+
 <h2>Animals</h2>
 
-<p>Click on the image to get more details about the animal</p>
+<p>Click on the animals name for more information.</p>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Breed</th>
+    <th>Admission Date</th>
+  </tr>
 
 <% @animals.each do |animal| %>
-
-<p>Name:<a href="/animals/<%= animal.id %>"> <%= animal.name() %></a> </p>
-<p>Type: <%= animal.type() %> </p>
-<p>Breed: <%= animal.breed() %> </p>
-
+<tr>
+<td><a href="/animals/<%= animal.id %>"> <%= animal.name() %></a> </td>
+<td><%= animal.type() %> </td>
+<td><%= animal.breed() %> </td>
+<td><%= animal.admission_date() %> </td>
+</tr>
 <% end %>
-</main>
-<footer>
-<a href="/animals/new">Add Animal</a>
-</footer>
+</table>
+
+
+<a class="button" href="/animals/new">Add Animal</a>

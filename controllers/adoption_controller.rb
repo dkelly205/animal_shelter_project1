@@ -13,12 +13,16 @@ end
 get '/adoptions/new' do
   @customers = Customer.all
   @animals = Animal.all
+  @available_animals = Animal.available
   erb(:"adoptions/new")
 end
 
 post '/adoptions' do
   adoption = Adoption.new(params)
   adoption.save
+  @animal = Animal.find(params[:animal_id])
+  @animal.change_status
+  @animal.update
   redirect to("/adoptions")
 end
 

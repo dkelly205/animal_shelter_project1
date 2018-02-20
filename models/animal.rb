@@ -1,5 +1,6 @@
 require_relative('../db/sql_runner.rb')
 require_relative('../models/customer.rb')
+require_relative('../models/adoption.rb')
 
 class Animal
 
@@ -36,6 +37,24 @@ class Animal
     result = animals.map{|animal| Animal.new(animal)}
     return result
   end
+
+  def self.available
+    sql = "SELECT * FROM animals WHERE animals.adoptable = $1"
+    values = [true]
+    available_animals = SqlRunner.run(sql, values)
+    result = available_animals.map{|available_animal| Animal.new(available_animal)}
+    return result
+  end
+
+  def self.unavailable
+    sql = "SELECT * FROM animals WHERE adoptable = $1"
+    values =[false]
+    unavailable_animals = SqlRunner.run(sql, values)
+    result = unavailable_animals.map{|unavailable_animal| Animal.new(unavailable_animal)}
+    return result
+  end
+
+
 
   def self.find(id)
     sql = "SELECT * FROM animals WHERE id = $1"
@@ -78,6 +97,10 @@ class Animal
     WHERE id = $10"
     values = [@name, @type, @breed, @gender, @health, @admission_date, @image, @adoptable, @age, @id]
     SqlRunner.run( sql, values )
+  end
+
+  def change_status()
+    @adoptable = !@adoptable
   end
 
 
