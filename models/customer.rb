@@ -57,9 +57,23 @@ class Customer
   end
 
   def delete()
-    sql = "DELETE FROM animals
+    sql = "DELETE FROM customers
     WHERE id = $1"
     values = [@id]
+    SqlRunner.run( sql, values )
+  end
+
+  def update()
+    sql = "UPDATE customers
+    SET
+    (
+      first_name, last_name, address, phone_number
+    ) =
+    (
+      $1, $2, $3, $4
+    )
+    WHERE id = $5"
+    values = [@first_name, @last_name, @address, @phone_number, @id]
     SqlRunner.run( sql, values )
   end
 

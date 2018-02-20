@@ -23,6 +23,6 @@ post '/adoptions' do
 end
 
 post "/adoptions/:id/delete" do
-  Adoption.remove(params[:id])
+  Adoption.delete(params[:id])
   redirect to "/adoptions"
 end

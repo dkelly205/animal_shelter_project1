@@ -13,11 +13,16 @@
 <td><%= customer.full_name() %> </td>
 <td><%= customer.address() %> </td>
 <td><%= customer.phone_number %> </td>
-<td><form method="post" action="/customers/delete">
+<td><%= customer.id %> </td>
+<td><form method="get" action="/customers/<%= customer.id %>/edit">
+  <input type="submit" value="Edit Customer"/>
+</form></td>
+<td><form method="post" action="/customers/<%= customer.id %>/delete">
   <input type="submit" value="Remove Customer"/>
 </form></td>
 </tr>
 <% end %>
 </table>
 
-<a href="/customers/new">Add Customer</a>
+
+<a class="button" href="/customers/new">Add Customer</a>
