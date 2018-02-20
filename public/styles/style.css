@@ -1,11 +1,16 @@
-/* body{background: url('/images/home.jpg'); */
-body{min-height: 100%;
+body{margin:0px;}
+
+.home{
+  background: url('/images/home.jpg');
 }
 
-html{ height: 100%;}
+.welcome{
+  color:black;
+  margin: 1em;
+}
 
-main{
-  overflow: scroll;
+h2{
+  margin: 1em;
 }
 
 h1{
@@ -17,22 +22,24 @@ h1{
   font-size: 3em;
 }
 
-nav {
-  background: silver;
-}
+p{margin-left: 20px;}
+
+h1, h2 {font-family: "Times New Roman", serif;}
+
+p, a, td{font-family: "Roboto" ,sans-serif;}
+
+nav {background: silver;}
 
 nav ul {
-  margin: 0px;
-  padding: 20px;
+  padding: 0px;
+  margin: 0
+
 }
 
 
 nav ul li{
   list-style-type: none;
   display: inline;
-  padding: 10px;
-
-
 
 }
 
@@ -40,29 +47,33 @@ nav ul li a{
   text-decoration: none;
   padding: 20px;
   color: black;
-
+  display: inline-block;
+  margin: 0px;
 }
 
-
+table{margin:10px;}
 tr:hover {background-color: silver;
 }
 
 td ,th {
     border: 1px solid #ddd;
-    padding: 15px;}
+    padding: 15px;
+}
 
 footer{
   background: dodgerblue;
   padding:30px;
   color: white;
   text-align: center;
-
+  position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
 }
 
 li a:hover {
     background-color: dodgerblue;
     color: white;
-
 }
 
 .button {
@@ -72,4 +83,24 @@ li a:hover {
   margin: 10px;
   color: white;
   text-decoration: none;
+  float: right;
+  position:fixed;
+  bottom: 6em;
+  right: 2em;
+  width: 8em;
+  text-align: center;
+
+}
+
+td a {color: dodgerblue;
+      text-decoration: none;}
+
+.show_animal{margin: 2em;}
+
+main{overflow:scroll;}
+
+.details{
+  font-size: 1.25em;
+  border: 3px solid dodgerblue;
+  margin:2em 15em;
 }
