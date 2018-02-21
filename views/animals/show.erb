@@ -10,9 +10,9 @@
 <p>Adoptable: <%= @animal.adoptable %></p>
 <p>Age: <%= @animal.age %></p>
 
-</div>
-<form method="post" action="/animals/<%= @animal.id %>/delete">
-  <input id="remove_animal_button" type="submit" value="Remove Animal"/>
-</form>
 
+<form method="post" action="/animals/<%= @animal.id %>/delete">
+  <input class="form_button" type="submit" value="Remove Animal"/>
+</form>
+</div>
 <a class="button" href="/animals/<%= @animal.id %>/edit">Edit Animal</a>

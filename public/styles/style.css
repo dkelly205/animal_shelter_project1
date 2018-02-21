@@ -120,26 +120,17 @@ footer{
 .form_button{  background: dodgerblue;
   color: white;
   padding:5px;
+  margin:auto;
 }
 
-#remove_animal_button{
-  background: dodgerblue;
-  padding:5px;
-  margin: 10px;
-  color: white;
-  bottom: 15em;
-  position: relative;
-  right: 2em;
-  height: 2.5em;
-  width: 12em;
-  text-align: center;
-  float:right;
-}
+
 
 .details{
   font-size: 1.2em;
   border: 3px solid dodgerblue;
   margin:5em 15em;
+  padding: 10px;
+  text-align: center;
 
 }
 
