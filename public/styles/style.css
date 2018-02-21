@@ -1,17 +1,29 @@
-body{margin:0px;}
-
-.home{
-  background: url('/images/home.jpg');
+body{
+  margin:0px;
 }
+
+.container{
+  height: 100%;
+}
+
+main{height: 80vh;}
 
 .welcome{
   color:black;
-  margin: 1em;
+  margin-left: 1em;
+  position:absolute;
+
 }
 
-h2{
-  margin: 1em;
+.background_image{
+  background-size: contain;
+  background-attachment: fixed;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  width: 100vw;
 }
+
+
 
 h1{
   background: dodgerblue;
@@ -20,27 +32,26 @@ h1{
   padding: 50px;
   margin: 0px;
   font-size: 3em;
+  font-family: "Times New Roman", serif;
 }
 
-p{margin-left: 20px;}
+h2{
+  margin: 1em;
+  font-family: "Times New Roman", serif;
+}
 
-h1, h2 {font-family: "Times New Roman", serif;}
-
-p, a, td{font-family: "Roboto" ,sans-serif;}
-
-nav {background: silver;}
+nav {background: silver;
+  }
 
 nav ul {
   padding: 0px;
   margin: 0
-
 }
 
 
 nav ul li{
   list-style-type: none;
   display: inline;
-
 }
 
 nav ul li a{
@@ -51,7 +62,21 @@ nav ul li a{
   margin: 0px;
 }
 
-table{margin:10px;}
+li a:hover {
+    background-color: dodgerblue;
+    color: white;
+}
+
+main{overflow:auto;}
+
+p{margin-left: 20px;}
+
+p, a, td{font-family: "Roboto" ,sans-serif;}
+
+
+
+table{margin:10px 10px 10px 15px;
+}
 tr:hover {background-color: silver;
 }
 
@@ -60,21 +85,22 @@ td ,th {
     padding: 15px;
 }
 
+td a {color: dodgerblue;
+      text-decoration: none;}
+
+
 footer{
   background: dodgerblue;
   padding:30px;
   color: white;
   text-align: center;
-  position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
+  position: relative ;
+  bottom: 0;
+  left: 0;
+  bottom: 0;
 }
 
-li a:hover {
-    background-color: dodgerblue;
-    color: white;
-}
+
 
 .button {
   background: dodgerblue;
@@ -84,23 +110,42 @@ li a:hover {
   color: white;
   text-decoration: none;
   float: right;
-  position:fixed;
-  bottom: 6em;
+  position:relative;
+  bottom: 3em;
   right: 2em;
   width: 8em;
   text-align: center;
-
 }
 
-td a {color: dodgerblue;
-      text-decoration: none;}
+.form_button{  background: dodgerblue;
+  color: white;
+  padding:5px;
+}
 
-.show_animal{margin: 2em;}
-
-main{overflow:scroll;}
+#remove_animal_button{
+  background: dodgerblue;
+  padding:5px;
+  margin: 10px;
+  color: white;
+  bottom: 15em;
+  position: relative;
+  right: 2em;
+  height: 2.5em;
+  width: 12em;
+  text-align: center;
+  float:right;
+}
 
 .details{
-  font-size: 1.25em;
+  font-size: 1.2em;
   border: 3px solid dodgerblue;
-  margin:2em 15em;
+  margin:5em 15em;
+
 }
+
+.create{padding:10px;
+border: 3px solid dodgerblue;
+text-align: center;
+margin:5em 15em;
+/* vertical-align: middle; */
+ }

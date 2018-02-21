@@ -16,10 +16,10 @@
 <td><%= customer.phone_number %> </td>
 <td><%= customer.id %> </td>
 <td><form method="get" action="/customers/<%= customer.id %>/edit">
-  <input type="submit" value="Edit Customer"/>
+  <input class="form_button" type="submit" value="Edit Customer"/>
 </form></td>
 <td><form method="post" action="/customers/<%= customer.id %>/delete">
-  <input type="submit" value="Remove Customer"/>
+  <input class="form_button" type="submit" value="Remove Customer"/>
 </form></td>
 </tr>
 <% end %>
